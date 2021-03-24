@@ -1,0 +1,64 @@
+.CollectionItem {
+  position: relative;
+
+  &:hover {
+    .image {
+      opacity: 0.9;
+    }
+    .addButton {
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }
+
+  .collection-footer {
+    display: flex;
+    justify-content: space-between;
+    .name,
+    .price {
+      font-size: 1.3rem;
+    }
+
+    .name {
+      width: 90%;
+    }
+
+    .price {
+      width: 18%;
+      text-align: right;
+    }
+  }
+
+  .addButton {
+    display: none;
+    position: absolute;
+    width: 80%;
+    top: 238px;
+    left: 10%;
+    background-color: #f99898;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Lato", sans-serif;
+    font-size: 1.1rem;
+
+    &:hover {
+      background-color: #ff7b7b;
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,381 @@
+.Signup {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #f99898;
+  overflow: hidden;
+  font-family: "Vidaloka", serif;
+
+  @media screen and (max-width: 425px) {
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0;
+
+    @media screen and (max-width: 425px) {
+      font-size: 1rem;
+      letter-spacing: -1px;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+  }
+
+  .container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    margin-top: 100px;
+
+    @media screen and (max-width: 425px) {
+      min-height: 296px;
+      margin-top: 69px;
+    }
+  }
+
+  .form-container {
+    span {
+      font-size: 1rem;
+    }
+
+    .forgot {
+      font-size: 1.2rem;
+    }
+  }
+
+  .form-container form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @media screen and (max-width: 425px) {
+      padding: 0 20px;
+    }
+  }
+
+  .social-container {
+    margin: 20px 0;
+  }
+
+  .social-container a {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .form-container input {
+    font-family: "Lato", sans-serif;
+    background: #eee;
+    border: none;
+    padding: 0 10px;
+    margin: 8px 0;
+    width: 80%;
+    border-radius: 10px;
+
+    &:focus {
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  button {
+    border-radius: 10px;
+    background: #f99898;
+    color: black;
+    border: none;
+    font-family: "Vidaloka", serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 12px 45px;
+    transition: transform 80ms ease-in;
+    cursor: pointer;
+
+    @media screen and (max-width: 425px) {
+      font-size: 0.8rem;
+      padding: 6px 20px;
+      letter-spacing: -1px;
+    }
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  button.ghost {
+    background: white;
+  }
+
+  .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+
+    form {
+      span {
+        font-size: 1.1rem;
+
+        @media screen and (max-width: 425px) {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+
+    input {
+      @media screen and (max-width: 425px) {
+        font-size: 0.8rem;
+        height: 30px;
+        margin: 4px 0;
+      }
+    }
+
+    .google-button {
+      @media screen and (max-width: 425px) {
+        width: 124px !important;
+      }
+    }
+
+    .forgot {
+      @media screen and (max-width: 425px) {
+        font-size: 0.8rem;
+        margin: 8px 0;
+      }
+    }
+  }
+
+  .sign-up-container {
+    left: 0;
+    width: 50%;
+    z-index: 1;
+    opacity: 0;
+
+    form {
+      span {
+        padding: 10px 0;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    }
+
+    input {
+      @media screen and (max-width: 425px) {
+        font-size: 0.8rem;
+        height: 30px;
+        margin: 0 0 8px 0;
+      }
+    }
+  }
+
+  .overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+
+    #signIn {
+      position: relative;
+      bottom: 100px;
+    }
+  }
+
+  .overlay {
+    background: #68e1fd;
+    color: black;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateY(0);
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.6s ease-in-out;
+
+    .party {
+      position: relative;
+      bottom: 20px;
+      width: 300px;
+
+      @media screen and (max-width: 425px) {
+        width: 170px;
+        bottom: 58px;
+      }
+    }
+
+    h1 {
+      font-size: 2rem;
+      padding-bottom: 30px;
+
+      @media screen and (max-width: 425px) {
+        font-size: 1rem;
+      }
+
+      &.welcome {
+        position: relative;
+        bottom: 100px;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+
+      &.connect {
+        position: relative;
+        bottom: 100px;
+      }
+
+      @media screen and (max-width: 425px) {
+        font-size: 0.8rem;
+        letter-spacing: 0;
+        margin: 20px 8px 20px;
+      }
+    }
+
+    .bakingImg {
+      position: relative;
+      bottom: 30px;
+      width: 300px;
+
+      @media screen and (max-width: 425px) {
+        width: 174px;
+      }
+    }
+
+    #signUp {
+      background: white;
+      position: relative;
+      bottom: 8px;
+
+      @media screen and (max-width: 425px) {
+        bottom: 2px;
+      }
+    }
+  }
+
+  .overlay-right {
+    right: 0;
+    transform: translateY(0);
+  }
+
+  .overlay-left {
+    transform: translateY(-20%);
+
+    @media screen and (max-width: 425px) {
+      padding: 0 5px;
+    }
+
+    h1 {
+      padding: 0;
+    }
+
+    @media screen and (max-width: 425px) {
+      margin-top: 50px;
+    }
+  }
+
+  /* Move signin to right */
+  .container.right-panel-active .sign-in-container {
+    transform: translateY(100%);
+  }
+
+  /* Move overlay to left */
+  .container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+  }
+
+  /* Bring signup over signin */
+  .container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+  }
+
+  /* Move overlay back to right */
+  .container.right-panel-active .overlay {
+    transform: translateX(50%);
+  }
+
+  /* Bring back the text to center */
+  .container.right-panel-active .overlay-left {
+    transform: translateY(0);
+  }
+
+  /* Same effect for right */
+  .container.right-panel-active .overlay-right {
+    transform: translateY(20%);
+  }
+
+  .wave {
+    position: absolute;
+    width: 100vw;
+    height: 320px;
+    left: 0;
+    top: 590px;
+
+    @media screen and (max-width: 425px) {
+      display: none;
+    }
+  }
+}

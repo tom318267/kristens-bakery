@@ -1,0 +1,96 @@
+.Navbar {
+  font-family: "Lato", sans-serif;
+
+  nav {
+    background-color: #fd7c7e;
+    box-shadow: none;
+  }
+  .nav-wrapper {
+    .sidenav-trigger {
+      text-decoration: none;
+    }
+
+    .cupcake-nav {
+      margin-left: 20px;
+
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
+    }
+    .brand-logo {
+      text-decoration: none;
+      img {
+        position: relative;
+        left: 20px;
+        width: 30px;
+
+        @media screen and (max-width: 425px) {
+          left: unset;
+        }
+      }
+
+      @media screen and (max-width: 992px) {
+        left: 90%;
+      }
+      @media screen and (min-width: 992px) {
+        display: none;
+      }
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    .material-icons {
+      color: white;
+    }
+
+    li {
+      a {
+        text-decoration: none;
+        position: relative;
+        font-family: "Lato", sans-serif;
+        font-size: 1.3rem;
+        margin-right: 10px;
+        color: white;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0) !important;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: 12px;
+          left: 0;
+          background-color: white;
+          visibility: hidden;
+          transform: scaleX(0);
+          transition: all 0.2s ease-in-out 0s;
+        }
+
+        &:hover:before {
+          visibility: visible;
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .sidenav {
+    background-color: #f99898;
+    li {
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.3rem;
+
+        &:hover {
+          background-color: #fd7c7e;
+        }
+      }
+    }
+  }
+}

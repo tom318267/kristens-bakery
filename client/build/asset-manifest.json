@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fd08a328.chunk.css",
+    "main.js": "/static/js/main.e2fc0c29.chunk.js",
+    "main.js.map": "/static/js/main.e2fc0c29.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.900dd88b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.900dd88b.js.map",
+    "static/js/2.f23066ad.chunk.js": "/static/js/2.f23066ad.chunk.js",
+    "static/js/2.f23066ad.chunk.js.map": "/static/js/2.f23066ad.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.fd08a328.chunk.css.map": "/static/css/main.fd08a328.chunk.css.map",
+    "static/js/2.f23066ad.chunk.js.LICENSE.txt": "/static/js/2.f23066ad.chunk.js.LICENSE.txt",
+    "static/media/baking.2cfa6d81.png": "/static/media/baking.2cfa6d81.png",
+    "static/media/dessertLogo.7354ab98.png": "/static/media/dessertLogo.7354ab98.png",
+    "static/media/party.522fe915.png": "/static/media/party.522fe915.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.900dd88b.js",
+    "static/js/2.f23066ad.chunk.js",
+    "static/css/main.fd08a328.chunk.css",
+    "static/js/main.e2fc0c29.chunk.js"
+  ]
+}
