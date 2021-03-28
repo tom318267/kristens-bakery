@@ -9,6 +9,7 @@ import {
   createUserProfileDocument,
 } from "../../firebase/firebase.utils";
 import GoogleButton from "react-google-button";
+import Swal from "sweetalert2";
 import "./Signup.scss";
 
 const Signup = () => {
@@ -25,6 +26,19 @@ const Signup = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    iconColor: "#f99898",
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
 
   const onSignUpSubmit = async (e) => {
     e.preventDefault();
@@ -44,6 +58,11 @@ const Signup = () => {
 
       await createUserProfileDocument(user, { displayName });
 
+      Toast.fire({
+        icon: "success",
+        title: `Welcome ${displayName}!`,
+      });
+
       setForm({
         displayName: "",
         email: "",
@@ -62,6 +81,12 @@ const Signup = () => {
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
+
+      Toast.fire({
+        icon: "success",
+        title: "You have successfully logged in",
+      });
+
       setForm({
         email: "",
         password: "",

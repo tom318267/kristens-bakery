@@ -8,9 +8,30 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
+import Swal from "sweetalert2";
 import "./Navbar.scss";
 
 const Navbar = ({ currentUser, hidden }) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    iconColor: "#f99898",
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  const signOutMessage = () => {
+    Toast.fire({
+      icon: "success",
+      title: "You have signed out",
+    });
+  };
+
   return (
     <div className="Navbar">
       <nav>
@@ -32,11 +53,15 @@ const Navbar = ({ currentUser, hidden }) => {
               <Link to="/items">Menu</Link>
             </li>
             <li>
-              <Link href="collapsible.html">Contact</Link>
-            </li>
-            <li>
               {currentUser ? (
-                <Link onClick={() => auth.signOut()}>Sign Out</Link>
+                <Link
+                  onClick={() => {
+                    auth.signOut();
+                    signOutMessage();
+                  }}
+                >
+                  Sign Out
+                </Link>
               ) : (
                 <Link to="/sign-in">Sign In</Link>
               )}
@@ -54,9 +79,6 @@ const Navbar = ({ currentUser, hidden }) => {
         </li>
         <li>
           <Link to="/items">Menu</Link>
-        </li>
-        <li>
-          <Link href="collapsible.html">Contact</Link>
         </li>
         <li>
           <Link to="/sign-in">Sign In</Link>
