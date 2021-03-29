@@ -1,21 +1,24 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
 } from "react-router-dom";
-import Homepage from "./components/Homepage/Homepage";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import Navbar from "./components/Navbar/Navbar";
-import BakeryItems from "./components/BakeryItems/BakeryItems";
-import Signup from "./components/Signup/Signup";
-import Checkout from "./components/Checkout/Checkout";
+import Spinner from "./components/Spinner/Spinner";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
 import "./App.scss";
+
+const Homepage = lazy(() => import("./components/Homepage/Homepage"));
+const BakeryItems = lazy(() => import("./components/BakeryItems/BakeryItems"));
+const Checkout = lazy(() => import("./components/Checkout/Checkout"));
+const Signup = lazy(() => import("./components/Signup/Signup"));
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -47,16 +50,20 @@ class App extends React.Component {
         <Router>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route exact path="/items" component={BakeryItems} />
-            <Route exact path="/checkout" component={Checkout} />
-            <Route
-              exact
-              path="/sign-in"
-              render={() =>
-                this.props.currentUser ? <Redirect to="/" /> : <Signup />
-              }
-            />
+            <ErrorBoundary>
+              <Suspense fallback={<Spinner />}>
+                <Route exact path="/" component={Homepage} />
+                <Route exact path="/items" component={BakeryItems} />
+                <Route exact path="/checkout" component={Checkout} />
+                <Route
+                  exact
+                  path="/sign-in"
+                  render={() =>
+                    this.props.currentUser ? <Redirect to="/" /> : <Signup />
+                  }
+                />
+              </Suspense>
+            </ErrorBoundary>
           </Switch>
         </Router>
       </div>
